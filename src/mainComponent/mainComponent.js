@@ -27,21 +27,20 @@ class MainComponent extends Component {
         let currentNumber = number;
         let nLength = currentNumber.length;
         let firstSymbol = currentNumber.split(``)[0];
+        let secondSymbol = currentNumber.split(``)[1];
 
         console.log(firstSymbol);
         console.log(currentNumber);
 
         if (nLength === 1){
             textNumber = numberArray[currentNumber];
-        }
-        if (nLength === 2){
-            if(+firstSymbol === 1) {
+        } else if (nLength === 2 && +firstSymbol === 1){
                 textNumber = numberArray[currentNumber];
-            } else {
                 //    TODO after 19
-            }
+        } else if (nLength === 2){
+            textNumber = `${numberArray[currentNumber - secondSymbol]} ${numberArray[secondSymbol]}`;
         }
-
+        //TODO after 99
 
         return this.setState({numberByText: textNumber});
     }
